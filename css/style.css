@@ -956,6 +956,14 @@ video {
   height: 33.333333%;
 }
 
+.h-3\/4{
+  height: 75%;
+}
+
+.h-60{
+  height: 15rem;
+}
+
 .min-h-0{
   min-height: 0px;
 }
