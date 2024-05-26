@@ -11,40 +11,9 @@
 </head>
 
 <body class="font-sans overflow-auto scrollbar-hide">
-  <header id="mainHeader" class="fixed top-0 left-0 w-full z-30 bg-blue1 h-28 transition-all duration-500 ease-in-out">
-    <div class="w-full h-full flex justify-between items-center relative px-4 lg:px-8">
-      <div class="flex items-center">
-        <a href="index.html" class="cursor-pointer">
-          <img src="./img/logo.png" class="logo h-24 ml-4 transition-all duration-500 ease-in-out" alt="logo" />
-        </a>
-      </div>
-
-      <div class="lg:hidden absolute right-4 top-1/2 transform -translate-y-1/2">
-        <img src="./img/burgermenu.svg" class="h-12 w-12 burger cursor-pointer" alt="Menu" onclick="toggleMenu()" />
-      </div>
-
-      <nav class="hidden lg:flex text-white text-xl mr-4 font-medium space-x-8 xl:space-x-12">
-        <a href="onas.html" class="nav-link py-2 underline-animation">O nas</a>
-        <a href="galeria.html" class="nav-link py-2 underline-animation">Galeria</a>
-        <a href="rezerwacje.html" class="nav-link py-2 underline-animation">Rezerwacje</a>
-        <a href="kontakt.html" class="nav-link py-2 underline-animation">Kontakt</a>
-        <a href="login.html" class="nav-link py-2 underline-animation">Logowanie</a>
-        <a href="profil.html" class="nav-link py-2 underline-animation">Moje konto</a>
-
-      </nav>
-    </div>
-
-    <div id="menu" class="hidden left-0 w-full h-screen bg-blue1 bg-opacity-80 mt-0 text-white p-5 z-50 flex-col justify-center">
-      <ul class="space-y-4 text-3xl font-medium">
-          <li><a href="onas.html" class="block text-center mb-16 mt-30 p-2 ">O nas</a></li>
-          <li><a href="galeria.html" class="block text-center p-2 m-16">Galeria</a></li>
-          <li><a href="rezerwacje.html" class="block text-center p-2 m-16">Rezerwacje</a></li>
-          <li><a href="kontakt.html" class="block text-center p-2 m-16">Kontakt</a></li>
-          <li><a href="login.html" class="block text-center p-2 m-16">Logowanie</a></li>
-          <li><a href="profil.html" class="block text-center p-2 m-16">Moje konto</a></li>
-      </ul>
-    </div>
-  </header>
+ <?php 
+    require_once 'header.php';
+  ?>
 
   <div class="flex h-screen">
     <div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5 mt-10">
@@ -123,30 +92,14 @@
                 <img class="object-cover w-60 h-60 p-1 rounded-full ring-2 ring-indigo-300 dark:ring-indigo-500"
                   src="img/offer1.jpg"
                   alt="Bordered avatar">
-                <h1 class="text-black ml-12 mr-16">Suite Apartament</h1>
-                <a href="suitedetails.html"><button class="bg-blue-500 text-white w-52 font-bold py-2 px-4 rounded-full sm:ml-4">
-                  Szczegóły rezerwacji
-                </button>
-                </a>
+                <h1 class="text-black ml-12 mr-16 text-3xl">Deluxe Apartament</h1>
               </div>
             </div>
-            <div class="grid max-w-2xl mx-auto mt-8">
-              <div class="flex flex-col items-center space-y-5 sm:flex-row sm:space-y-0 sm:justify-between">
-                <img class="object-cover w-60 h-60 p-1 rounded-full ring-2 ring-indigo-300 dark:ring-indigo-500"
-                  src="img/offer2.jpg"
-                  alt="Bordered avatar">
-                  <h1 class="text-black ml-12 mr-16">Deluxe Apartament</h1>
-                  <a href="deluxedetails.html"><button class="bg-blue-500 w-52 text-white font-bold py-2 px-4 rounded-full sm:ml-4">
-                    Szczegóły rezerwacji
-                  </button>
-                  </a>
-              </div>
             </div>
           </div>
         </div>
       </main>
     </div>
-    
     </div>
   </div>
   

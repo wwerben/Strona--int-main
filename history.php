@@ -11,40 +11,10 @@
 </head>
 
 <body class="font-sans overflow-auto scrollbar-hide">
-  <header id="mainHeader" class="fixed top-0 left-0 w-full z-30 bg-blue1 h-28 transition-all duration-500 ease-in-out">
-    <div class="w-full h-full flex justify-between items-center relative px-4 lg:px-8">
-      <div class="flex items-center">
-        <a href="index.html" class="cursor-pointer">
-          <img src="./img/logo.png" class="logo h-24 ml-4 transition-all duration-500 ease-in-out" alt="logo" />
-        </a>
-      </div>
+<?php 
+    require_once 'header.php';
+  ?>
 
-      <div class="lg:hidden absolute right-4 top-1/2 transform -translate-y-1/2">
-        <img src="./img/burgermenu.svg" class="h-12 w-12 burger cursor-pointer" alt="Menu" onclick="toggleMenu()" />
-      </div>
-
-      <nav class="hidden lg:flex text-white text-xl mr-4 font-medium space-x-8 xl:space-x-12">
-        <a href="onas.html" class="nav-link py-2 underline-animation">O nas</a>
-        <a href="galeria.html" class="nav-link py-2 underline-animation">Galeria</a>
-        <a href="rezerwacje.html" class="nav-link py-2 underline-animation">Rezerwacje</a>
-        <a href="kontakt.html" class="nav-link py-2 underline-animation">Kontakt</a>
-        <a href="login.html" class="nav-link py-2 underline-animation">Logowanie</a>
-        <a href="profil.html" class="nav-link py-2 underline-animation">Moje konto</a>
-
-      </nav>
-    </div>
-
-    <div id="menu" class="hidden left-0 w-full h-screen bg-blue1 bg-opacity-80 mt-0 text-white p-5 z-50 flex-col justify-center">
-      <ul class="space-y-4 text-3xl font-medium">
-          <li><a href="onas.html" class="block text-center mb-16 mt-30 p-2 ">O nas</a></li>
-          <li><a href="galeria.html" class="block text-center p-2 m-16">Galeria</a></li>
-          <li><a href="rezerwacje.html" class="block text-center p-2 m-16">Rezerwacje</a></li>
-          <li><a href="kontakt.html" class="block text-center p-2 m-16">Kontakt</a></li>
-          <li><a href="login.html" class="block text-center p-2 m-16">Logowanie</a></li>
-          <li><a href="profil.html" class="block text-center p-2 m-16">Moje konto</a></li>
-      </ul>
-    </div>
-  </header>
 
   <div class="flex h-screen">
     <div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5 mt-10">
@@ -113,74 +83,55 @@
         </a>
       </nav>
     </div>
+
+
+    <!-- RESZTA STRONY -->
     <div class="flex-grow ">
       <main class="w-full min-h-screen py-1 md:w-2/3 lg:w-3/4 pt-28">
-        <div class="p-2 md:p-4">
-            <div class="w-full px-6 pb-8 mt-8 sm:max-w-xl sm:rounded-lg">
-                <h2 class="pl-6 text-2xl font-bold sm:text-xl">Twój Profil</h2>
-                <div class="grid max-w-2xl mx-auto mt-4">
-                    <div class="items-center mt-8 sm:mt-14 text-[#202142]">
-
-                        <div
-                            class="flex flex-col items-center w-full mb-2 space-x-0 space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0 sm:mb-6">
-                            <div class="w-full">
-                                <label for="first_name"
-                                    class="block mb-2 text-sm font-medium text-indigo-900 dark:text-black">Twoje imię</label>
-                                <input type="text" id="first_name"
-                                    class="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
-                                    placeholder="Imię" value="" required>
-                            </div>
-
-                            <div class="w-full">
-                                <label for="last_name"
-                                    class="block mb-2 text-sm font-medium text-indigo-900 dark:text-black">Twoje nazwisko</label>
-                                <input type="text" id="last_name"
-                                    class="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
-                                    placeholder="Nazwisko" value="" required>
-                            </div>
-
-                        </div>
-
-                        <div class="mb-2 sm:mb-6">
-                            <label for="email"
-                                class="block mb-2 text-sm font-medium text-indigo-900 dark:text-black">Twój E-mail</label>
-                            <input type="email" id="email"
-                                class="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
-                                placeholder="email@mail.com" required>
-                        </div>
-
-                        <div class="mb-2 sm:mb-6">
-                            <label for="profession"
-                                class="block mb-2 text-sm font-medium text-indigo-900 dark:text-black">Pochodzenie</label>
-                            <input type="text" id="profession"
-                                class="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
-                                placeholder="Polska" required>
-                        </div>
-
-                        <div class="mb-6">
-                            <label for="message"
-                                class="block mb-2 text-sm font-medium text-indigo-900 dark:text-black">O mnie...</label>
-                            <textarea id="message" rows="4"
-                                class="block p-2.5 w-full text-sm text-indigo-900 bg-indigo-50 rounded-lg border border-indigo-300 focus:ring-indigo-500 focus:border-indigo-500 "
-                                placeholder="Napisz coś o sobie..."></textarea>
-                        </div>
-
-                        <div class="flex justify-center">
-                          <a href="profil.html"
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                            type="button"
-                          >
-                            Zapisz
-                          </a>
-                        </div>
-
+            <div class="p-2 md:p-4">
+                <div class="w-full px-6 pb-8 mt-8 sm:max-w-xl sm:rounded-lg">
+                    
+                    <div class="p-5 mb-4 border border-gray-100 rounded-lg bg-gray-50 dark:bg-blue1 dark:border-gray-700">
+                        <time class="text-lg font-semibold text-gray-900 dark:text-white">Styczeń 2022</time>
+                        <ol class="mt-3 divide-y divider-gray-200 dark:divide-gray-700">
+                            <li>
+                                <a href="standartdetails.html" class="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700">
+                                    <img class="w-40 h-40 mb-3 me-3 rounded-full sm:mb-0" src="./img/offer2.jpg" alt=""/>
+                                    <div class="text-gray-600 dark:text-gray-400">
+                                        <div class="text-white ml-6">Titanium Tower - Standard</div> 
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="suitedetails.html" class="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700">
+                                    <img class="w-40 h-40 mb-3 me-3 rounded-full sm:mb-0" src="./img/offer1.jpg" alt="Bonnie Green image"/>
+                                    <div class="text-gray-600 dark:text-gray-400">
+                                        <div class="text-white ml-6">Titanium Tower - Suite</div> 
+                                    </div>
+                                </a>
+                            </li>
+                            
+                        </ol>
+                    </div>
+                    <div class="p-5 mb-4 border border-gray-100 rounded-lg bg-gray-50 dark:bg-blue1 dark:border-gray-700">
+                        <time class="text-lg font-semibold text-gray-900 dark:text-white">Lipiec 2024</time>
+                        <ol class="mt-3 divide-y divider-gray-200 dark:divide-gray-700">
+                            <li>
+                                <a href="deluxedetails.html" class="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700">
+                                    <img class="w-40 h-40 mb-3 me-3 rounded-full sm:mb-0" src="./img/offer2.jpg" alt=""/>
+                                    <div class="text-gray-600 dark:text-gray-400">
+                                        <div class="text-white ml-6">Titanium Tower - Deluxe</div> 
+                                    </div>
+                                </a>
+                            </li>
+                            
+                        </ol>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+      </main>
     </div>
-    </div>
+    
   </div>
   
   

@@ -10,6 +10,9 @@ Clone the repo:
 git clone
 ```
 
+npm i tailwind-scrollbar-hide
+npm i tailwind-scrollbar-hide
+
 Install the dependencies:
 
 ```bash

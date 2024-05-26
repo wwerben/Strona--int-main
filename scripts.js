@@ -70,3 +70,31 @@ function slider() {
     }));
   });
 }
+
+function validateForm() {
+  const pass = document.getElementById('pass').value;
+  const passAgain = document.getElementById('pass2').value;
+  if (pass !== passAgain) {
+      alert('Hasła nie są zgodne.');
+      return false;
+  }
+
+  const email = document.getElementById('email').value;
+  const firstName = document.getElementById('firstName').value;
+  const lastName = document.getElementById('lastName').value;
+
+  if (email.length > 50) {
+      alert('Adres email nie może przekraczać 50 znaków.');
+      return false;
+  }
+  if (firstName.length > 30) {
+      alert('Imię nie może przekraczać 30 znaków.');
+      return false;
+  }
+  if (lastName.length > 30) {
+      alert('Nazwisko nie może przekraczać 30 znaków.');
+      return false;
+  }
+
+  return true;
+}

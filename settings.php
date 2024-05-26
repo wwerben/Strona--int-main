@@ -11,40 +11,10 @@
 </head>
 
 <body class="font-sans overflow-auto scrollbar-hide">
-  <header id="mainHeader" class="fixed top-0 left-0 w-full z-30 bg-blue1 h-28 transition-all duration-500 ease-in-out">
-    <div class="w-full h-full flex justify-between items-center relative px-4 lg:px-8">
-      <div class="flex items-center">
-        <a href="index.html" class="cursor-pointer">
-          <img src="./img/logo.png" class="logo h-24 ml-4 transition-all duration-500 ease-in-out" alt="logo" />
-        </a>
-      </div>
+<?php 
+    require_once 'header.php';
+  ?>
 
-      <div class="lg:hidden absolute right-4 top-1/2 transform -translate-y-1/2">
-        <img src="./img/burgermenu.svg" class="h-12 w-12 burger cursor-pointer" alt="Menu" onclick="toggleMenu()" />
-      </div>
-
-      <nav class="hidden lg:flex text-white text-xl mr-4 font-medium space-x-8 xl:space-x-12">
-        <a href="onas.html" class="nav-link py-2 underline-animation">O nas</a>
-        <a href="galeria.html" class="nav-link py-2 underline-animation">Galeria</a>
-        <a href="rezerwacje.html" class="nav-link py-2 underline-animation">Rezerwacje</a>
-        <a href="kontakt.html" class="nav-link py-2 underline-animation">Kontakt</a>
-        <a href="login.html" class="nav-link py-2 underline-animation">Logowanie</a>
-        <a href="profil.html" class="nav-link py-2 underline-animation">Moje konto</a>
-
-      </nav>
-    </div>
-
-    <div id="menu" class="hidden left-0 w-full h-screen bg-blue1 bg-opacity-80 mt-0 text-white p-5 z-50 flex-col justify-center">
-      <ul class="space-y-4 text-3xl font-medium">
-          <li><a href="onas.html" class="block text-center mb-16 mt-30 p-2 ">O nas</a></li>
-          <li><a href="galeria.html" class="block text-center p-2 m-16">Galeria</a></li>
-          <li><a href="rezerwacje.html" class="block text-center p-2 m-16">Rezerwacje</a></li>
-          <li><a href="kontakt.html" class="block text-center p-2 m-16">Kontakt</a></li>
-          <li><a href="login.html" class="block text-center p-2 m-16">Logowanie</a></li>
-          <li><a href="profil.html" class="block text-center p-2 m-16">Moje konto</a></li>
-      </ul>
-    </div>
-  </header>
 
   <div class="flex h-screen">
     <div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5 mt-10">
@@ -117,99 +87,19 @@
       <main class="w-full min-h-screen py-1 md:w-2/3 lg:w-3/4 pt-28 ">
         <div class="p-2 md:p-4">
             <div class="w-full px-6 pb-8 mt-8 sm:max-w-xl sm:rounded-lg">
-                <h2 class="pl-6 text-2xl font-bold sm:text-xl">Bezpieczeństwo i Prywatność</h2>
+                <h2 class="pl-6 text-2xl font-bold sm:text-xl">Ustawienia</h2>
                 <div class="grid max-w-2xl mx-auto mt-4">
-                    <div class="items-center mt-8 sm:mt-14 text-[#202142]">
-
-                        <form>
-                            <div class="mb-4">
-                              <label
-                                class="block font-semibold text-gray-700 mb-2"
-                                for="password"
-                              >
-                                Nazwa użytkownika
-                              </label>
-                              <input
-                              class="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
-                                id="loginuser"
-                                type="loginuser"
-                                placeholder="John Doe"
-                              />
-                              
-                              
-                            </div>
-                            <div class="mb-4">
-                              <label class="block font-semibold text-gray-700 mb-2" for="email">
-                                Adres E-mail
-                              </label>
-                              <input
-                              class="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
-                                id="email"
-                                type="email"
-                                placeholder="Email@email.com"
-                              />
-                            </div>
-                            <div class="mb-4">
-                                <label class="block font-semibold text-gray-700 mb-2" for="phone">
-                                  Numer Telefonu
-                                </label>
-                                <input
-                                class="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
-                                  id="phone"
-                                  type="phone"
-                                  placeholder="+48 123 123 123"
-                                />
-                            </div>
-                            <div class="mb-4">
-                                <label class="block font-semibold text-gray-700 mb-2" for="dateb">
-                                  Data urodzenia
-                                </label>
-                                <input
-                                class="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
-                                  id="dateb"
-                                  type="dateb"
-                                  placeholder="DD/MM//RR"
-                                />
-                            </div>
-                            <div class="mb-4">
-                              <label
-                                class="block font-semibold text-gray-700 mb-2"
-                                for="password"
-                              >
-                                Obecne hasło
-                              </label>
-                              <input
-                              class="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
-                                id="password"
-                                type="password"
-                                placeholder="******"
-                              />
-                              
-                            </div>
-                            <div class="mb-4">
-                                <label
-                                  class="block font-semibold text-gray-700 mb-2"
-                                  for="Npassword"
-                                >
-                                  Nowe hasło
-                                </label>
-                                <input
-                                class="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
-                                  id="npassword"
-                                  type="npassword"
-                                  placeholder="******"
-                                />
-                                
-                              </div>
-                            <div class="flex justify-center">
-                              <a href="profil.html"
-                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                                type="button"
-                              >
-                                Zmień
-                              </a>
-                            </div>
-                          </form>
+                    <div class="items-center mt-8 sm:mt-14 text-blue1">
+                      <form class="max-w-sm mx-auto">
+                        <label for="countries" class="block mb-2 text-xl text-black">Wybierz język</label>
+                        <select id="countries" class="bg-gray-50 border border-gray-300 text-blue1 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-blue1 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                          <option selected>Dostępne języki</option>
+                          <option value="PL">Polski</option>
+                          <option value="EN">Angielski</option>
+                          <option value="DE">Niemiecki</option>
+                          <option value="ES">Hiszpański</option>
+                        </select>
+                      </form>
                     </div>
                 </div>
             </div>
