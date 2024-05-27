@@ -19,8 +19,17 @@ class Controller {
             case 'login':
                 $this->loginAuth();
                 break;
+            case 'paneladmin':
+                $this->viewUsers();
+                break;
             case 'panel':
                 $this->showPanel();
+                break;
+            case 'editU':
+                $this->editUser();
+                break;
+            case 'deleteUser':
+                $this->deleteUser();
                 break;
             default:
                 $this->showHome();
@@ -89,7 +98,20 @@ class Controller {
             }
         }
     }
+ 
 
+    private function viewUsers(){
+        $this->checkAdminAccess();
+        $users = $this->model->getAllUsers();
+        require 'paneladmin.php';
+    }
+
+    private function checkAdminAccess() {
+        if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+            header('Location: login.php');
+            exit();
+        }
+    }
 	//
     private function showPanel(){
         if (!isset($_SESSION['role'])) {
@@ -120,6 +142,86 @@ class Controller {
                 header('Location: login.php');
                 break;
         }
+        exit();
+    }
+    private function editUser() {
+        $this->checkAdminAccess();
+        $userId = $_GET['id'] ?? null;
+        if (!$userId) {
+            header('Location: index.php?action=viewUsers');
+            exit();
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $email = $_POST['email'] ?? '';
+            $firstName = $_POST['firstName'] ?? '';
+            $lastName = $_POST['lastName'] ?? '';
+            $phoneNumber = $_POST['phoneNumber'] ?? '';
+            $region = $_POST['region'] ?? '';
+            $role = $_POST['role'] ?? '';
+            $verified = isset($_POST['verified']) ? 1 : 0;
+
+            $this->model->updateUser($userId, $email, $firstName, $lastName, $phoneNumber, $region, $role, $verified);
+
+            header('Location: ../klienci.php');
+            exit();
+        } else {
+            $user = $this->model->getUserById($userId);
+            require './admin/edit.php';
+        }
+    }
+
+
+      private function deleteUser() {
+        $this->checkAdminAccess();
+        $userId = $_GET['id'] ?? null;
+        if (!$userId) {
+            header('Location: index.php?action=viewUsers');
+            exit();
+        }
+
+        $this->model->deleteUser($userId);
+        header('Location: paneladmin.php');
+        exit();
+    }
+
+    private function editWorker() {
+        $this->checkAdminAccess();
+        $workerId = $_GET['id'] ?? null;
+        if (!$workerId) {
+            header('Location: index.php?action=viewWorkers');
+            exit();
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $email = $_POST['email'] ?? '';
+            $firstName = $_POST['firstName'] ?? '';
+            $lastName = $_POST['lastName'] ?? '';
+            $phoneNumber = $_POST['phoneNumber'] ?? '';
+            $region = $_POST['region'] ?? '';
+            $role = $_POST['role'] ?? '';
+            $verified = isset($_POST['verified']) ? 1 : 0;
+
+            $this->model->updateUser($workerId, $email, $firstName, $lastName, $phoneNumber, $region, $role, $verified);
+
+            header('Location: index.php?action=viewWorkers');
+            exit();
+        } else {
+            $user = $this->model->getUserById($workerId);
+            require 'editUserForm.php';
+        }
+    }
+
+    private function deleteWorker() {
+        $this->checkAdminAccess();
+        $workerId = $_GET['id'] ?? null;
+        if (!$workerId) {
+            header('Location: index.php?action=viewWorkers');
+            exit();
+        }
+
+        $this->model->deleteUser($workerId);
+        header('Location: index.php?action=viewWorkers');
         exit();
     }
 }

@@ -1,38 +1,4 @@
-<?php
-
-require_once 'db.php';
-require_once 'config.php';
-// Połączenie z bazą danych
-$db = dbConnect();
-
-// Pobieranie danych użytkowników
-$query = 'SELECT * FROM user';
-$result = $db->query($query);
-$users = [];
-if ($result->num_rows > 0) {
-    $users = $result->fetch_all(MYSQLI_ASSOC);
-}
-?>
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simple Tailwind Starter</title>
-  <script src="./scripts.js"></script>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" />
-</head>
-
-<body class="font-sans overflow-auto scrollbar-hide">
-<?php 
-    require_once 'header.php';
-  ?>
-
-
-  <div class="flex h-screen">
-    <div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5 mt-10">
+<div class="sticky flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5 mt-10">
       <div class="w-full pt-8 px-4 mb-8 mx-auto h-12">
         <div class="text-sm text-gray-700 py-1">
             <a class="" href="" target="_blank"></a><a href="" class="" target="blank"> </a>
@@ -42,7 +8,7 @@ if ($result->num_rows > 0) {
         <h5 class="block antialiased tracking-normal font-sans text-xl font-semibold leading-snug text-gray-900">Panel</h5>
       </div>
       <nav class="flex flex-col gap-1 min-w-[240px] p-2 font-sans text-base font-normal text-gray-700">
-        <a href="paneladmin.php">
+        <a href="<?= BASE_URL ?>/paneladmin.php">
         <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-blue-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none">
           <div class="grid place-items-center mr-4">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5">
@@ -51,7 +17,7 @@ if ($result->num_rows > 0) {
           </div>Panel Główny
         </div>
         </a>
-        <a href="admin/rezerwacje.php">
+        <a href="<?= BASE_URL ?>/admin/rezerwacje.php">
         <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-blue-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none">
           <div class="grid place-items-center mr-4">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5">
@@ -60,7 +26,7 @@ if ($result->num_rows > 0) {
           </div>Rezerwacje
         </div>
         </a>
-        <a href="admin/pracownicy.php">
+        <a href="<?= BASE_URL ?>/admin/pracownicy.php">
         <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-blue-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none">
           <div class="grid place-items-center mr-4">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-badge" viewBox="0 0 16 16">
@@ -70,7 +36,7 @@ if ($result->num_rows > 0) {
           </div>Pracownicy
         </div>
         </a>
-        <a href="admin/klienci.php">
+        <a href="<?= BASE_URL ?>/admin/klienci.php">
         <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-blue-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none">
           <div class="grid place-items-center mr-4">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
@@ -79,7 +45,7 @@ if ($result->num_rows > 0) {
           </div>Klienci
         </div>
         </a>
-        <a href="admin/statystyki.php">
+        <a href="<?= BASE_URL ?>/admin/statystyki.php">
         <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-blue-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none">
           <div class="grid place-items-center mr-4">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bar-chart-fill" viewBox="0 0 16 16">
@@ -88,7 +54,7 @@ if ($result->num_rows > 0) {
           </div>Statystyki
         </div>
         </a>
-        <a href="logout.php">
+        <a href="<?= BASE_URL ?>/logout.php">
         <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-blue-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none">
           <div class="grid place-items-center mr-4">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5">
@@ -99,22 +65,3 @@ if ($result->num_rows > 0) {
         </a>
       </nav>
     </div>
-
-   
-                </div> 
-    </main>
-    </div>
-    </div>
-  </div>
-  
-  
-
-
-  <footer class="text-center lg:text-left mt-2">
-    <div class="bg-blue2 p-4 text-center text-surface dark:text-white">
-      © 2024 Copyright:
-      <a href="index.html">Titanium Tower</a>
-    </div>
-  </footer>
-</body>
-</html>

@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once 'model.php';
+define('BASE_URL', '/hotelwlasciwy/Strona--int-main');
+
 
 function checkUserAccess($requiredRole) {
     if (!isset($_SESSION['user'])) {

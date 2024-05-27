@@ -1,5 +1,5 @@
 <?php
-require_once './config.php';
+require_once '../config.php';
 
 $userIsActive = isset($_SESSION['user']) && $_SESSION['user'] !== null;
 
@@ -10,13 +10,13 @@ $button2Class = $userIsActive ? '' : 'hidden';
 
 
 
-<header id="mainHeader" class="fixed top-0 left-0 w-full z-30 bg-blue1 h-28 transition-all duration-500 ease-in-out">
+<header  class="top-0 left-0 w-full z-30 bg-blue1 h-28 transition-all duration-500 ease-in-out">
       <div class="w-full h-full flex justify-between items-center relative px-4 lg:px-8">
           
           <div class="flex items-center">
-            <a href="home.php" class="cursor-pointer">
+            <a href="../home.php" class="cursor-pointer">
               <img
-                src="./img/logo.png"
+                src="../img/logo.png"
                 class="logo h-24 ml-4 transition-all duration-500 ease-in-out"
                 alt="logo"
               />
@@ -25,7 +25,7 @@ $button2Class = $userIsActive ? '' : 'hidden';
 
           
           <div class="lg:hidden absolute right-4 top-1/2 transform -translate-y-1/2">
-              <img src="./img/burgermenu.svg" class="h-12 w-12 burger cursor-pointer" alt="Menu" onclick="toggleMenu()">
+              <img src="../img/burgermenu.svg" class="h-12 w-12 burger cursor-pointer"  onclick="toggleMenu()">
           </div>
 
           
@@ -43,7 +43,7 @@ $button2Class = $userIsActive ? '' : 'hidden';
      
     
 
-      <div id="menu" class="hidden left-0 w-full h-screen bg-blue1 bg-opacity-80 mt-0 text-white p-5 z-50 flex-col justify-center">
+      <div  class="hidden left-0 w-full h-screen bg-blue1 bg-opacity-80 mt-0 text-white p-5 z-50 flex-col justify-center">
         <ul class="space-y-4 text-3xl font-medium">
             <li><a href="onas.php" class="block text-center mb-16 mt-30 p-2 ">O nas</a></li>
             <li><a href="galeria.php" class="block text-center p-2 m-16">Galeria</a></li>

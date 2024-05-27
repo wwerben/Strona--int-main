@@ -44,8 +44,41 @@
 				return null;
 			}
 		}
-		
 
+		public function getAllUsers() {
+        $query = 'SELECT * FROM user';
+        $result = $this->db->query($query);
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return [];
+        }
+    }
+
+	public function getUserById($userId) {
+        $stmt = $this->db->prepare('SELECT * FROM user WHERE ID = ?');
+        $stmt->bind_param('i', $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $user = $result->fetch_assoc();
+        $stmt->close();
+        return $user;
+    }
+
+    public function updateUser($userId, $email, $firstName, $lastName, $phoneNumber, $region, $role, $verified) {
+        $stmt = $this->db->prepare('UPDATE user SET email = ?, firstName = ?, lastName = ?, phoneNumber = ?, region = ?, role = ?, verified = ? WHERE ID = ?');
+        $stmt->bind_param('ssssssii', $email, $firstName, $lastName, $phoneNumber, $region, $role, $verified, $userId);
+        $stmt->execute();
+        $stmt->close();
+    }
+	public function deleteUser($userId) {
+    $stmt = $this->db->prepare('DELETE FROM user WHERE ID = ?');
+    $stmt->bind_param('i', $userId);
+    $stmt->execute();
+    $stmt->close();
+}
+
+	
 
 	}
 ?>
